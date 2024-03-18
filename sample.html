@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="image-container">
+      <img src="image1.jpg" alt="Image 1" class="image" />
+      <button class="close-btn">Close</button>
+      <button class="hide-btn" style="display: none">Hide</button>
+    </div>
+
+    <div class="image-container">
+      <img src="image2.jpg" alt="Image 2" class="image" />
+      <button class="close-btn">Close</button>
+      <button class="hide-btn" style="display: none">Hide</button>
+    </div>
+
+    <!-- Add more image containers as needed -->
+    <script>
+      // Get all close buttons and hide buttons
+      const closeBtns = document.querySelectorAll(".close-btn");
+      const hideBtns = document.querySelectorAll(".hide-btn");
+
+      // Add event listeners to close buttons
+      closeBtns.forEach((btn, index) => {
+        btn.addEventListener("click", () => {
+          const imageContainer = btn.parentElement;
+          const image = imageContainer.querySelector(".image");
+          const hideBtn = imageContainer.querySelector(".hide-btn");
+
+          image.style.display = "block";
+          hideBtn.style.display = "block";
+          btn.style.display = "none";
+        });
+      });
+
+      // Add event listeners to hide buttons
+      hideBtns.forEach((btn, index) => {
+        btn.addEventListener("click", () => {
+          const imageContainer = btn.parentElement;
+          const image = imageContainer.querySelector(".image");
+          const closeBtn = imageContainer.querySelector(".close-btn");
+
+          image.style.display = "none";
+          closeBtn.style.display = "block";
+          btn.style.display = "none";
+        });
+      });
+    </script>
+  </body>
+</html>
